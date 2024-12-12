@@ -1,47 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Henrique Sousa - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="logo">&lt;/&gt;</div>
-        <nav class="nav">
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#about">Sobre mim</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#career">Carreira</a></li>
-                <li><a href="#recommendations">Recomendações</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main class="main-content">
-        <section class="hero">
-            <div class="intro">
-                <span class="greeting">👋 Saudações!</span>
-                <h1>Alef</h1>
-                <p>Front-end developer · UI designer</p>
-                <div class="social-icons">
-                    <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
-                    <a href="#"><img src="github.png" alt="GitHub"></a>
-                    <a href="#"><img src="dribbble.png" alt="Dribbble"></a>
-                </div>
-            </div>
-            <div class="avatar">
-                <img src="avatar.png" alt="Alef">
-            </div>
-        </section>
-        <div class="actions">
-            <a href="#" class="btn-download">Baixar CV</a>
-            <a href="#" class="btn-contact">Vamos conversar</a>
+  <header class="header">
+    <div class="logo">AK</div>
+    <div class="menu-icon">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </header>
+  
+  <!-- Seção Principal -->
+  <main class="main-content">
+    <!-- Vídeo de fundo -->
+    <div class="video-background">
+      <video autoplay loop muted>
+        <source src="/mídia/background-video.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo.
+      </video>
+    </div>
+    
+    <!-- Seção de Introdução -->
+    <div class="intro">
+      <div class="avatar">
+        <img src="/mídia/eu.jpg" alt="Avatar">
+      </div>
+      <div class="text">
+        <h1>Olá! 👋 Eu sou Alef Kauê</h1>
+        <p>FULL STACK DEVELOPER</p>
+        <div class="buttons">
+          <button class="btn"><a href="/resume.html">Resumo</a></button> <!-- Link para a página resume.html -->
+          <button class="btn btn-secondary" id="about-btn">Sobre mim</button>
         </div>
-    </main>
+      </div>
+    </div>
+  </main>
+
+  <!-- Quadrado de Sobre Mim -->
+  <div id="about-container" class="about-container">
+    <div class="about-content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolores quibusdam minus sed recusandae iure voluptates temporibus delectus quas non adipisci, exercitationem possimus, quis, praesentium aspernatur perferendis inventore molestias. Atque provident, neque dolorem inventore vel voluptates sunt fugit sit id officiis exercitationem adipisci mollitia! Est ut cupiditate dolores ipsa quo praesentium nemo officia assumenda distinctio quas temporibus quaerat, architecto sunt.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="social-icons">
+      <a href="https://github.com/seu-usuario" target="_blank" class="icon github">
+        <img src="/mídia/github.png" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/seu-usuario" target="_blank" class="icon linkedin">
+        <img src="/mídia/linkedin.png" alt="LinkedIn">
+      </a>
+      <a href="https://www.instagram.com/seu-usuario" target="_blank" class="icon instagram">
+        <img src="/mídia/instagram.png" alt="Instagram">
+      </a>
+    </div>
+    <p>&copy; 2024 Alef Kauê. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="/js/script.js"></script>
 </body>
 </html>
