@@ -18,7 +18,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #1e1e1e;
+  background-color: #00000000;
   position: fixed;
   top: 0;
   left: 0;
@@ -32,18 +32,6 @@ body {
 .logo {
   font-size: 24px;
   font-weight: bold;
-}
-
-/* Menu Hamburguer */
-.menu-icon {
-  cursor: pointer;
-}
-
-.menu-icon .bar {
-  width: 25px;
-  height: 3px;
-  background-color: #fff;
-  margin: 4px 0;
 }
 
 /* Seção Principal (Main Content) */
@@ -82,11 +70,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 100px; /* Aumenta o espaço entre o avatar e o texto */
+  gap: 80px; /* Ajusta o espaço entre o avatar e o texto */
   width: 100%;
   text-align: center;
   padding: 20px;
   height: 100vh; /* Faz com que a introdução ocupe toda a altura da tela */
+  position: relative; /* Necessário para os ícones flutuantes ao redor do avatar */
 }
 
 /* Avatar */
@@ -95,6 +84,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  position: relative; /* Necessário para posicionar os ícones flutuantes ao redor */
 }
 
 .avatar img {
@@ -102,6 +92,64 @@ body {
   max-width: 250px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* Estilos para os ícones flutuantes */
+.floating-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza os ícones em relação ao avatar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-icons div {
+  position: absolute;
+  animation: float 4s infinite ease-in-out; /* Adiciona animação de "flutuação" */
+  width: 40px;  /* Tamanho reduzido dos ícones */
+  height: 40px; /* Tamanho reduzido dos ícones */
+}
+
+/* Posições dos ícones ainda mais próximos do avatar */
+.icon-1 {
+  animation-delay: 0s; /* Ícone 1 começa primeiro */
+  top: -45px; /* Ícone mais próximo acima do avatar */
+  left: -45px; /* Ícone mais próximo à esquerda do avatar */
+}
+
+.icon-2 {
+  animation-delay: 1s; /* Ícone 2 começa após 1 segundo */
+  top: -45px; /* Ícone mais próximo acima do avatar */
+  right: -45px; /* Ícone mais próximo à direita do avatar */
+}
+
+.icon-3 {
+  animation-delay: 2s; /* Ícone 3 começa após 2 segundos */
+  bottom: -45px; /* Ícone mais próximo abaixo do avatar */
+  left: 0;
+}
+
+/* Animação de flutuação suave */
+@keyframes float {
+  0% {
+    transform: translate(0, 0); /* Posição inicial */
+  }
+  25% {
+    transform: translate(15px, -15px); /* Movimento para a direita e para cima */
+  }
+  50% {
+    transform: translate(0, 15px); /* Movimento para baixo */
+  }
+  75% {
+    transform: translate(-15px, -15px); /* Movimento para a esquerda e para cima */
+  }
+  100% {
+    transform: translate(0, 0); /* Retorna à posição inicial */
+  }
 }
 
 /* Texto da Introdução */
@@ -149,10 +197,6 @@ body {
   color: #a523f0;
 }
 
-.btn-secondary a {
-  color: #f04e23; /* Mantém a cor do texto do link */
-}
-
 /* Quadrado de "Sobre Mim" */
 #about-container {
   display: none; /* Inicialmente invisível */
@@ -180,53 +224,89 @@ body {
   font-family: Arial, sans-serif; /* Fonte mais reta e simples */
 }
 
-/* Botão "Sobre Mim" */
-#about-btn {
-  cursor: pointer;
-  background-color: transparent; /* Botão sem cor */
-  border: 2px solid #a523f0; /* Borda laranja */
-  padding: 10px 20px;
-  color: #a523f0; /* Cor da borda e do texto */
-  font-size: 16px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+/* Carrossel */
+.carousel-container {
+  width: 60%; /* Define uma largura de 60% da tela */
+  max-width: 700px; /* Limita a largura máxima do carrossel */
+  margin: 50px; /* Centraliza o carrossel horizontalmente */
+  overflow: hidden; /* Esconde as imagens que estão fora da área visível */
+  position: relative; /* Necessário para posicionar os botões de navegação */
+  align-self: flex-start;
 }
 
-#about-btn:hover {
-  background-color: #f04e23; /* Altera fundo para laranja quando passa o mouse */
-  color: white; /* Muda a cor do texto para branco */
-}
-
-/* Estilos para o Modal de PDF */
-#pdf-modal {
-  display: none; /* Inicialmente invisível */
-  position: fixed;
+/* Overlay sobre o Carrossel */
+.carousel-overlay {
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro com opacidade */
-  z-index: 1000; /* Para garantir que o modal fique acima de tudo */
+  background-color: rgba(29, 26, 26, 0.7); /* Fundo cinza escuro e opaco */
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.pdf-modal-content {
-  background-color: #fff;
+  color: #fff;
+  z-index: 10;
   padding: 20px;
-  max-width: 80%;
-  max-height: 80%;
-  overflow: auto;
+  text-align: center;
+  transition: opacity 0.5s ease; /* Transição suave para a opacidade */
 }
 
-.close-btn {
-  color: #f04e23;
+.carousel-title {
   font-size: 36px;
   font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carousel-description {
+  font-size: 18px;
+  max-width: 80%;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+/* Quando o mouse passar sobre o carrossel, escondemos a sobreposição */
+.carousel-container:hover .carousel-overlay {
+  opacity: 0; /* Faz a sobreposição desaparecer */
+}
+
+/* Carrossel */
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel img {
+  width: 100%; /* Cada imagem ocupa toda a área do carrossel */
+  height: auto;
+  flex-shrink: 0;
+  object-fit: cover; /* Garante que as imagens não se deformem */
+}
+
+/* Botões de navegação */
+.prev, .next {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
   cursor: pointer;
+  z-index: 20;
+  background-color: transparent; /* Remove fundo */
+  border: none; /* Remove borda */
+  color: #fff; /* Cor da seta */
+  padding: 0; /* Remove padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev {
+  left: 10px; /* Botão à esquerda */
+}
+
+.next {
+  right: 10px; /* Botão à direita */
 }
 
 /* Estilos para o Footer */

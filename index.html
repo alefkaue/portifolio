@@ -9,11 +9,6 @@
 <body>
   <header class="header">
     <div class="logo">AK</div>
-    <div class="menu-icon">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
   </header>
   
   <!-- Seção Principal -->
@@ -25,17 +20,24 @@
         Seu navegador não suporta vídeo.
       </video>
     </div>
-    
+
     <!-- Seção de Introdução -->
     <div class="intro">
       <div class="avatar">
         <img src="/mídia/eu.jpg" alt="Avatar">
+        <div class="floating-icons">
+          <div class="icon-1"><img src="/mídia/github.png" alt="icon 1"></div>
+          <div class="icon-2"><img src="/mídia/instagram.png" alt="icon 2"></div>
+          <div class="icon-2"><img src="/mídia/instagram.png" alt="icon 3"></div>
+          <div class="icon-3"><img src="/mídia/linkedin.png" alt="icon 4"></div>
+          <div class="icon-3"><img src="/mídia/linkedin.png" alt="icon 5"></div>
+        </div>
       </div>
       <div class="text">
         <h1>Olá! 👋 Eu sou Alef Kauê</h1>
         <p>FULL STACK DEVELOPER</p>
         <div class="buttons">
-          <button class="btn"><a href="/resume.html">Resumo</a></button> <!-- Link para a página resume.html -->
+          <button class="btn"><a href="/pages/resume.html">Resumo</a></button> <!-- Link para a página resume.html -->
           <button class="btn btn-secondary" id="about-btn">Sobre mim</button>
         </div>
       </div>
@@ -48,6 +50,24 @@
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam dolores quibusdam minus sed recusandae iure voluptates temporibus delectus quas non adipisci, exercitationem possimus, quis, praesentium aspernatur perferendis inventore molestias. Atque provident, neque dolorem inventore vel voluptates sunt fugit sit id officiis exercitationem adipisci mollitia! Est ut cupiditate dolores ipsa quo praesentium nemo officia assumenda distinctio quas temporibus quaerat, architecto sunt.</p>
     </div>
   </div>
+
+  
+<!-- Seção Carrossel -->
+<div class="carousel-container">
+  <!-- Título e Texto sobre o Carrossel -->
+  <div class="carousel-overlay">
+    <h2 class="carousel-title">Projetos Recentes</h2>
+    <p class="carousel-description">Aqui estão alguns dos meus projetos recentes como desenvolvedor full stack.</p>
+  </div>
+  <div class="carousel">
+    <img src="/mídia/project_1.png" alt="Imagem 1">
+    <img src="/mídia/project_2.png" alt="Imagem 2">
+    <img src="/mídia/project_3.png" alt="Imagem 3">
+  </div>
+  <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+  <button class="next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
 
   <!-- Footer -->
   <footer class="footer">
