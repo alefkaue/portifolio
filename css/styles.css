@@ -109,46 +109,129 @@ body {
 
 .floating-icons div {
   position: absolute;
-  animation: float 4s infinite ease-in-out; /* Adiciona animação de "flutuação" */
-  width: 40px;  /* Tamanho reduzido dos ícones */
-  height: 40px; /* Tamanho reduzido dos ícones */
+  width: 40px;  /* Tamanho dos ícones */
+  height: 40px; /* Tamanho dos ícones */
 }
 
-/* Posições dos ícones ainda mais próximos do avatar */
+/* Posições dos ícones mais próximos ao avatar */
 .icon-1 {
-  animation-delay: 0s; /* Ícone 1 começa primeiro */
-  top: -45px; /* Ícone mais próximo acima do avatar */
-  left: -45px; /* Ícone mais próximo à esquerda do avatar */
+  animation: float1 4s infinite ease-in-out; /* Animação personalizada */
+  top: -30px; /* Ícone mais próximo acima do avatar */
+  left: -30px; /* Ícone mais próximo à esquerda do avatar */
 }
 
 .icon-2 {
-  animation-delay: 1s; /* Ícone 2 começa após 1 segundo */
-  top: -45px; /* Ícone mais próximo acima do avatar */
-  right: -45px; /* Ícone mais próximo à direita do avatar */
+  animation: float2 5s infinite ease-in-out; /* Animação personalizada */
+  top: -30px; /* Ícone mais próximo acima do avatar */
+  right: -30px; /* Ícone mais próximo à direita do avatar */
 }
 
 .icon-3 {
-  animation-delay: 2s; /* Ícone 3 começa após 2 segundos */
-  bottom: -45px; /* Ícone mais próximo abaixo do avatar */
+  animation: float3 6s infinite ease-in-out; /* Animação personalizada */
+  bottom: -30px; /* Ícone mais próximo abaixo do avatar */
   left: 0;
 }
 
-/* Animação de flutuação suave */
-@keyframes float {
+.icon-4 {
+  animation: float4 7s infinite ease-in-out;  /* Animação personalizada */
+  bottom: -30px;
+  right: -30px;  /* Ícone à direita abaixo do avatar */
+}
+
+.icon-5 {
+  animation: float5 8s infinite ease-in-out;  /* Animação personalizada */
+  top: 0;
+  left: 30px;  /* Ícone ao lado esquerdo, acima do avatar */
+}
+
+/* Animações personalizadas para cada ícone */
+@keyframes float1 {
   0% {
-    transform: translate(0, 0); /* Posição inicial */
+    transform: translate(0, 0);
   }
   25% {
-    transform: translate(15px, -15px); /* Movimento para a direita e para cima */
+    transform: translate(10px, -20px); /* Movimento para a direita e para cima */
   }
   50% {
-    transform: translate(0, 15px); /* Movimento para baixo */
+    transform: translate(-20px, 20px); /* Movimento para a esquerda e para baixo */
   }
   75% {
-    transform: translate(-15px, -15px); /* Movimento para a esquerda e para cima */
+    transform: translate(15px, 10px); /* Movimento para a direita e para baixo */
   }
   100% {
-    transform: translate(0, 0); /* Retorna à posição inicial */
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-15px, 10px); /* Movimento para a esquerda e para cima */
+  }
+  50% {
+    transform: translate(20px, -10px); /* Movimento para a direita e para cima */
+  }
+  75% {
+    transform: translate(-10px, 25px); /* Movimento para a esquerda e para baixo */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20px, -30px); /* Movimento para a direita e para cima */
+  }
+  50% {
+    transform: translate(-10px, 20px); /* Movimento para a esquerda e para baixo */
+  }
+  75% {
+    transform: translate(-15px, -10px); /* Movimento para a esquerda e para cima */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-10px, 20px); /* Movimento para a esquerda e para baixo */
+  }
+  50% {
+    transform: translate(15px, 10px); /* Movimento para a direita e para cima */
+  }
+  75% {
+    transform: translate(-5px, -15px); /* Movimento para a esquerda e para cima */
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-20px, -10px); /* Movimento para a esquerda e para cima */
+  }
+  50% {
+    transform: translate(30px, 20px); /* Movimento para a direita e para baixo */
+  }
+  75% {
+    transform: translate(-10px, -5px); /* Movimento para a esquerda e para cima */
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
 
@@ -228,10 +311,57 @@ body {
 .carousel-container {
   width: 60%; /* Define uma largura de 60% da tela */
   max-width: 700px; /* Limita a largura máxima do carrossel */
-  margin: 50px; /* Centraliza o carrossel horizontalmente */
+  margin: 50px auto; /* Centraliza o carrossel horizontalmente */
   overflow: hidden; /* Esconde as imagens que estão fora da área visível */
   position: relative; /* Necessário para posicionar os botões de navegação */
-  align-self: flex-start;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Animação suave para transição */
+}
+
+.carousel a {
+  flex-shrink: 0; /* Impede que as imagens encolham */
+  width: 100%; /* Garante que a imagem ocupe 100% do espaço do carrossel */
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Garante que as imagens não se deformem */
+}
+
+/* Botões de navegação */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 20;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev {
+  left: 10px; /* Botão à esquerda */
+}
+
+.next {
+  right: 10px; /* Botão à direita */
+}
+
+/* Estilos de navegação */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
 }
 
 /* Overlay sobre o Carrossel */
@@ -271,44 +401,6 @@ body {
   opacity: 0; /* Faz a sobreposição desaparecer */
 }
 
-/* Carrossel */
-.carousel {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carousel img {
-  width: 100%; /* Cada imagem ocupa toda a área do carrossel */
-  height: auto;
-  flex-shrink: 0;
-  object-fit: cover; /* Garante que as imagens não se deformem */
-}
-
-/* Botões de navegação */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 20;
-  background-color: transparent; /* Remove fundo */
-  border: none; /* Remove borda */
-  color: #fff; /* Cor da seta */
-  padding: 0; /* Remove padding */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.prev {
-  left: 10px; /* Botão à esquerda */
-}
-
-.next {
-  right: 10px; /* Botão à direita */
-}
-
 /* Estilos para o Footer */
 .footer {
   background-color: #222;
@@ -342,3 +434,4 @@ body {
   font-size: 14px;
   margin-top: 10px;
 }
+

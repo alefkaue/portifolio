@@ -22,13 +22,27 @@ function moveSlide(direction) {
 }
 
 // Função para mostrar o card "Sobre mim" ao clicar no botão
-document.getElementById('about-btn').addEventListener('click', function() {
+document.getElementById('about-btn').addEventListener('click', function(event) {
+  event.stopPropagation(); // Impede que o clique se propague para o documento e feche o card imediatamente
   const aboutContainer = document.getElementById('about-container');
   
   // Alterna a visibilidade do card "Sobre mim"
   if (aboutContainer.style.display === 'none' || aboutContainer.style.display === '') {
     aboutContainer.style.display = 'flex'; // Mostra o card
+    console.log("Card visível");
   } else {
     aboutContainer.style.display = 'none'; // Esconde o card
+    console.log("Card escondido");
+  }
+});
+
+// Função para fechar o card "Sobre mim" ao clicar fora dele
+document.addEventListener('click', function(event) {
+  const aboutContainer = document.getElementById('about-container');
+  
+  // Verifica se o clique foi fora do card
+  if (!aboutContainer.contains(event.target) && aboutContainer.style.display === 'flex') {
+    aboutContainer.style.display = 'none'; // Esconde o card
+    console.log("Card fechado ao clicar fora");
   }
 });
